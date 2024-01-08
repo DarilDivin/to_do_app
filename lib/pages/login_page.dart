@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:projet_controle/data/models/authenticated_user.dart';
 import 'package:projet_controle/data/services/users_services.dart';
-import 'package:projet_controle/pages/home_page.dart';
+import 'package:projet_controle/pages/StatistiquePage.dart';
+import 'package:projet_controle/pages/todolist_page.dart';
 import 'package:projet_controle/pages/signup_page.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -55,7 +56,7 @@ class _LoginPageState extends State<LoginPage> {
       // rediriger vers la page home
       Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => HomePage())
+          MaterialPageRoute(builder: (context) => TodoList())
       );
 
     } on DioException catch (e) {
@@ -140,7 +141,7 @@ class _LoginPageState extends State<LoginPage> {
             alignment: Alignment.centerRight,
             child: TextButton(
                 onPressed: () {
-                  Navigator.push(
+                  Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(builder: (context) => SignupPage())
                   );
